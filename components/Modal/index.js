@@ -4,7 +4,7 @@ const Modal = ({ data, setIsOpen }) => {
     console.log(data, 'modal');
 
     return (
-        <S.OpacityModal>
+        <S.OpacityModal onClick={() => setIsOpen(false)}>
             <S.Modal>
 
                 <S.BtnF onClick={() => setIsOpen(false)}>fechar</S.BtnF>
