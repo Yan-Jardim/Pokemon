@@ -1,5 +1,5 @@
 import axios from "axios";
-import { use, useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import * as S from "./styles.pokemon";
 import Modal from '../../components/Modal';
 
@@ -25,12 +25,30 @@ export default function pokemon() {
         axios
             .get("https://pokeapi.co/api/v2/pokemon?limit=251")
             .then((res) => setResposta(res.data.results))
-  
+
     }
 
     const Voltar = () => {
         window.location.href = "/";
     };
+
+    const [house, setHouse] = useState();
+    const ref = useRef(null)
+
+    const handleClickOutside = (event) => {
+        if (ref.current && !ref.current.contains(event.target)) {
+            setIsOpen(false)
+
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside, true)
+        return () => {
+            document.removeEventListener('click', handleClickOutside, true)
+        }
+    }, [])
+
 
     return (
         <>
@@ -50,9 +68,11 @@ export default function pokemon() {
                     ))}
                 </S.CardsPosition>
             </S.Main>
+            <div ref={ref} onClick={handleClickOutside}>
             {isOpen &&
                 <Modal data={data} setIsOpen={setIsOpen} />
             }
+            </div>
         </>
     )
 }
