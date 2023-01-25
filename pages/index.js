@@ -41,11 +41,12 @@ export default function Home() {
       </S.Header>
 
       <S.Main>
-        <S.Img_Main src='/firered.png' />
-        {isOpen &&
-          <Modal data={data} setIsOpen={setIsOpen} />
-        }
+        <S.Img_Main src='/element.png' />
+        <S.MobaImg src='/moba.png'/>
       </S.Main>
+      {isOpen &&
+        <Modal data={data} setIsOpen={setIsOpen} />
+      }
 
     </div>
   )

@@ -30,7 +30,6 @@ height: 500px;
 }
 `
 export const BtnF = styled.button`
-color: #120a7f;
 cursor: pointer;
 padding: 5px;
 border: none;
