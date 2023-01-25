@@ -50,7 +50,7 @@ justify-content: center;
 `
 export const Img_Main = styled.img`
 width: 100%;
-height: 775px;
+height: 600px;
 @media (max-width: 490px){
     display:none ;
 }

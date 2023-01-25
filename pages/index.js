@@ -5,12 +5,10 @@ import { useState } from 'react';
 import axios from "axios";
 import Modal from '../components/Modal';
 
-
 export default function Home() {
 
   const [data, setData] = useState([]);
   const [isOpen, setIsOpen] = useState(false)
-
 
   const pokemonLegends = (id) => {
     axios
@@ -18,7 +16,10 @@ export default function Home() {
       .then((response) => {
         setData(response.data);
         setIsOpen(true);
-      });
+      })
+      .catch((response) => (
+        alert("Por favor verifique o nome do pokemon pesquisado")
+      ))
   };
 
   return (
@@ -42,7 +43,7 @@ export default function Home() {
 
       <S.Main>
         <S.Img_Main src='/element.png' />
-        <S.MobaImg src='/moba.png'/>
+        <S.MobaImg src='/moba.png' />
       </S.Main>
       {isOpen &&
         <Modal data={data} setIsOpen={setIsOpen} />
