@@ -49,7 +49,7 @@ display: flex;
 justify-content: center;
 `
 export const Img_Main = styled.img`
-width: 1200px;
+width: 100%;
 height: 850px;
 @media (max-width: 490px){
     display:none ;
